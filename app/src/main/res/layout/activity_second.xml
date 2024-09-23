@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <Button
+        android:id="@+id/buttonGoToBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:backgroundTint="@color/gray"
+        android:text="Back"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/Display"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:padding="16dp"
+        android:text="0"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TableLayout
+        android:id="@+id/tableLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/Display"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+            <Button
+                android:layout_marginRight="5dp"
+                android:backgroundTint="@color/grayc"
+                android:onClick="onDigit"
+                android:text="7"
+                android:textColor="@color/white"
+                android:textSize="100px" />
+
+            <Button
+                android:layout_marginRight="5dp"
+                android:backgroundTint="@color/grayc"
+                android:onClick="onDigit"
+                android:text="8"
+                android:textColor="@color/white"
+                android:textSize="100px" />
+
+            <Button
+                android:layout_marginRight="5dp"
+                android:backgroundTint="@color/grayc"
+                android:onClick="onDigit"
+                android:text="9"
+                android:textColor="@color/white"
+                android:textSize="100px" />
+
+            <Button
+                android:backgroundTint="@color/gray"
+                android:onClick="onOperator"
+                android:text="x"
+                android:textColor="@color/green"
+                android:textSize="100px" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+            <Button
+                android:layout_marginRight="5dp"
+                android:backgroundTint="@color/grayc"
+                android:onClick="onDigit"
+                android:text="4"
+                android:textColor="@color/white"
+                android:textSize="100px" />
+
+            <Button
+                android:layout_marginRight="5dp"
+                android:backgroundTint="@color/grayc"
+                android:onClick="onDigit"
+                android:text="5"
+                android:textColor="@color/white"
+                android:textSize="100px" />
+
+            <Button
+                android:layout_marginRight="5dp"
+                android:backgroundTint="@color/grayc"
+                android:onClick="onDigit"
+                android:text="6"
+                android:textColor="@color/white"
+                android:textSize="100px" />
+
+            <Button
+                android:backgroundTint="@color/gray"
+                android:onClick="onOperator"
+                android:text="-"
+                android:textColor="@color/green"
+                android:textSize="100px" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+            <Button
+                android:layout_marginRight="5dp"
+                android:backgroundTint="@color/grayc"
+                android:onClick="onDigit"
+                android:text="1"
+                android:textColor="@color/white"
+                android:textSize="100px" />
+
+            <Button
+                android:layout_marginRight="5dp"
+                android:backgroundTint="@color/grayc"
+                android:onClick="onDigit"
+                android:text="2"
+                android:textColor="@color/white"
+                android:textSize="100px" />
+
+            <Button
+                android:layout_marginRight="5dp"
+                android:backgroundTint="@color/grayc"
+                android:onClick="onDigit"
+                android:text="3"
+                android:textColor="@color/white"
+                android:textSize="100px" />
+
+            <Button
+                android:backgroundTint="@color/gray"
+                android:onClick="onOperator"
+                android:text="+"
+                android:textColor="@color/green"
+                android:textSize="100px" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:gravity="center">
+
+            <Button
+                android:layout_marginRight="5dp"
+                android:backgroundTint="@color/gray"
+                android:onClick="onOperator"
+                android:text="C"
+                android:textColor="@color/org"
+                android:textSize="100px" />
+
+            <Button
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:backgroundTint="@color/grayc"
+                android:onClick="onDigit"
+                android:text="0"
+                android:textColor="@color/white"
+                android:textSize="100px" />
+
+            <Button
+                android:layout_marginRight="5dp"
+                android:backgroundTint="@color/gray"
+                android:onClick="onDigit"
+                android:text=","
+                android:textColor="@color/white"
+                android:textSize="100px" />
+
+            <Button
+                android:id="@+id/button_divide"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/gray"
+                android:onClick="onOperator"
+                android:text="/"
+                android:textColor="@color/green"
+                android:textSize="0px"
+                android:drawableTop="@drawable/division_icon"
+                android:drawableTint="@color/green"
+                android:paddingTop="10dp"
+                android:paddingBottom="0dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:drawablePadding="0dp" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_height="90dp"
+            android:gravity="center">
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:backgroundTint="@color/green"
+                android:onClick="onOperator"
+                android:text="="
+                android:textColor="@color/white"
+                android:textSize="100px"
+                android:layout_span="4"/>
+
+        </TableRow>
+
+    </TableLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
