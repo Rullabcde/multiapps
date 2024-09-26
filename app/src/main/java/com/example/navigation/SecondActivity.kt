@@ -3,6 +3,7 @@ package com.example.navigation
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.TableLayout
 import android.widget.TableRow
 import android.widget.TextView
@@ -19,8 +20,9 @@ class SecondActivity : AppCompatActivity(){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_second)
         supportActionBar?.hide()
-        val buttonGoBack: Button = findViewById(R.id.buttonGoToBack)
-        buttonGoBack.setOnClickListener {
+
+        val back: ImageButton = findViewById(R.id.back)
+        back.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
             startActivity(intent)

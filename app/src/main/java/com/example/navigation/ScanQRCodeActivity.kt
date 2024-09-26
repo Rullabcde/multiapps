@@ -3,38 +3,48 @@ package com.example.navigation
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.net.Uri
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import com.example.navigation.databinding.ActivityMainBinding
 import com.example.navigation.databinding.QrcodeActivityBinding
 import com.journeyapps.barcodescanner.ScanContract
 import com.journeyapps.barcodescanner.ScanIntentResult
 import com.journeyapps.barcodescanner.ScanOptions
 
 class ScanQRCodeActivity: AppCompatActivity() {
-    private val requestPermissionLauncher = registerForActivityResult(ActivityResultContracts.RequestPermission()) {
-            isGranted: Boolean ->
+    private val requestPermissionLauncher = registerForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted: Boolean ->
         if (isGranted) {
             showCamera()
         } else {
-
+            Toast.makeText(this, "Camera permission is required to scan QR codes", Toast.LENGTH_SHORT).show()
         }
     }
 
     private val scanLauncher = registerForActivityResult(ScanContract()) { result: ScanIntentResult -> run {
-            if (result.contents == null) {
-                Toast.makeText(this, "Cancelled", Toast.LENGTH_SHORT).show()
-            } else {
-                setResult(result.contents)
-            }
+        if (result.contents == null) {
+            Toast.makeText(this, "Cancelled", Toast.LENGTH_SHORT).show()
+        } else {
+            setResult(result.contents)
         }
+    }
     }
 
     private fun setResult(string: String) {
+        // Menampilkan hasil di TextView
         binding.textResult.text = string
+
+        // Cek apakah hasil pemindaian adalah URL
+        if (string.startsWith("http://") || string.startsWith("https://")) {
+            // Buat intent untuk membuka URL di browser
+            val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(string))
+            startActivity(browserIntent)
+        } else {
+            // Jika hasil bukan URL, tampilkan pesan di Toast
+            Toast.makeText(this, "Hasil pemindaian: $string", Toast.LENGTH_SHORT).show()
+        }
     }
 
     private lateinit var binding: QrcodeActivityBinding
